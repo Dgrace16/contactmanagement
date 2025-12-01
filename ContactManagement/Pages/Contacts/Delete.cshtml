@@ -1,1 +1,20 @@
-﻿
+﻿@page "{id:int}"
+@model ContactManagement.Pages.Contacts.Delete
+
+<h2>Delete Contact</h2>
+
+<div class="alert alert-warning">
+    <p>Tem certeza que deseja remover este contato?</p>
+</div>
+
+<div>
+    <strong>Nome:</strong> @Model.Contact.Name <br />
+    <strong>Contacto:</strong> @Model.Contact.ContactNumber <br />
+    <strong>Email:</strong> @Model.Contact.Email <br />
+</div>
+
+<form method="post">
+    <input type="hidden" asp-for="Contact.Id" />
+    <button type="submit" class="btn btn-danger">Confirmar</button>
+    <a asp-page="/Index" class="btn btn-secondary">Cancelar</a>
+</form>

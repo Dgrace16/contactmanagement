@@ -1,16 +1,25 @@
 ﻿@page
 @model ContactManagement.Pages.Account.Login
-
+@{
+    ViewData["Title"] = "Login";
+}
 <h2>Login</h2>
 
 <form method="post">
     <div class="mb-3">
-        <label>Username</label>
+        <label asp-for="Username" class="form-label">Username</label>
         <input asp-for="Username" class="form-control" />
+        <span asp-validation-for="Username" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label>Password</label>
+        <label asp-for="Password" class="form-label">Password</label>
         <input asp-for="Password" type="password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
     </div>
-    <button class="btn btn-primary">Login</button>
+    <input type="hidden" asp-for="ReturnUrl" />
+    <button class="btn btn-primary">Entrar</button>
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

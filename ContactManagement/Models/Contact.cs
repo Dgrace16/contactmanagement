@@ -11,7 +11,7 @@ public class Contact
     public string Name { get; set; } = string.Empty;
     
     [Required]
-    [RegularExpression(@"^\d(9)$", ErrorMessage = "The contact number must have exactly 9 digits.")]
+    [RegularExpression(@"^\d{9}$", ErrorMessage = "The contact number must have exactly 9 digits.")]
     public string ContactNumber { get; set; } =  string.Empty;
     
     [EmailAddress] public string Email { get; set; } =  string.Empty;

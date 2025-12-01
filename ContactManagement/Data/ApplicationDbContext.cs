@@ -22,9 +22,9 @@ public class ApplicationDbContext : DbContext
 
         base.OnModelCreating(modelBuilder);
         
-        modelBuilder.Entity<Contact>().HasQueryFilter(c => !c.IsActive);
+        modelBuilder.Entity<Contact>().HasQueryFilter(c => c.IsActive);
         modelBuilder.Entity<Contact>().HasData(
-            new Contact { Id = 1, Name = "Exemplo Contacto", ContactNumber = "912345678", Email = "exemplo@teste.pt" }
+            new Contact { Id = 1, Name = "Exemplo Contacto", ContactNumber = "912345678", Email = "exemplo@teste.pt",  }
         );
         
     }

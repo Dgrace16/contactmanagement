@@ -5,6 +5,10 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
+
+// Adiciona HttpContextAccessor (CORREÇÃO DO ERRO)
+builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     var cs = builder.Configuration.GetConnectionString("MariaDB");
@@ -15,15 +19,25 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     .AddCookie(options =>
     {
         options.LoginPath = "/Account/Login";
+        options.LogoutPath = "/Account/Logout";
+        options.AccessDeniedPath = "/Account/Login";
     });
+
+builder.Services.AddRazorPages(options =>
+{
+    options.Conventions.AuthorizePage("/Contacts/Create");
+    options.Conventions.AuthorizePage("/Contacts/Edit");
+    options.Conventions.AuthorizePage("/Contacts/Delete");
+});
 
 var app = builder.Build();
 
+// Migração automática
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var db = services.GetRequiredService<ApplicationDbContext>();
-    
+
     try
     {
         db.Database.Migrate();

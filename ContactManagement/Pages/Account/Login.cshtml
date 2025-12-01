@@ -1,19 +1,16 @@
 ﻿@page
 @model ContactManagement.Pages.Account.Login
 
-@{
-    Layout = null;
-}
+<h2>Login</h2>
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<div>
-    
-</div>
-</body>
-</html>
+<form method="post">
+    <div class="mb-3">
+        <label>Username</label>
+        <input asp-for="Username" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>Password</label>
+        <input asp-for="Password" type="password" class="form-control" />
+    </div>
+    <button class="btn btn-primary">Login</button>
+</form>

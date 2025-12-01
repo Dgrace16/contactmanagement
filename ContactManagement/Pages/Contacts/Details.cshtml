@@ -1,19 +1,17 @@
-﻿@page
+﻿@page "{id:int}"
 @model ContactManagement.Pages.Contacts.Details
 
-@{
-    Layout = null;
+<h2>Details</h2>
+
+@if (Model.Contact != null)
+{
+    <dl class="row">
+        <dt class="col-sm-3">Name</dt><dd class="col-sm-9">@Model.Contact.Name</dd>
+        <dt class="col-sm-3">Number</dt><dd class="col-sm-9">@Model.Contact.ContactNumber</dd>
+        <dt class="col-sm-3">Email</dt><dd class="col-sm-9">@Model.Contact.Email</dd>
+    </dl>
+    <a asp-page="/Contacts/Edit" asp-route-id="@Model.Contact.Id" class="btn btn-primary">Editar</a>
+    <form method="post" asp-page="/Contacts/Delete" asp-route-id="@Model.Contact.Id" class="d-inline">
+        <button class="btn btn-danger">Delete</button>
+    </form>
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<div>
-    
-</div>
-</body>
-</html>

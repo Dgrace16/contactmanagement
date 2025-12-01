@@ -1,10 +1,30 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Contact List";
 }
+<h1>Contacts</h1>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<table class="table">
+    <thead>
+    <tr><th>Nome</th><th>Contacto</th><th>Email</th><th></th></tr>
+    </thead>
+    <tbody>
+    @foreach(var c in Model.Contacts)
+    {
+        <tr>
+            <td>@c.Name</td>
+            <td>@c.ContactNumber</td>
+            <td>@c.Email</td>
+            <td>
+                <a class="btn btn-sm btn-link" asp-page="/Contacts/Details" asp-route-id="@c.Id">Details</a>
+                <a class="btn btn-sm btn-link" asp-page="/Contacts/Edit" asp-route-id="@c.Id">Edit</a>
+
+                <form method="post" asp-page="/Contacts/Delete" asp-route-id="@c.Id" class="d-inline">
+                    <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactManagement", "ContactManagement\ContactManagement.csproj", "{22448251-9238-47B9-879F-6F02AD8597FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{3B1FFC4B-5921-4F52-AB7D-DEE0EBAEC1FA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{22448251-9238-47B9-879F-6F02AD8597FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22448251-9238-47B9-879F-6F02AD8597FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22448251-9238-47B9-879F-6F02AD8597FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B1FFC4B-5921-4F52-AB7D-DEE0EBAEC1FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B1FFC4B-5921-4F52-AB7D-DEE0EBAEC1FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B1FFC4B-5921-4F52-AB7D-DEE0EBAEC1FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B1FFC4B-5921-4F52-AB7D-DEE0EBAEC1FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
